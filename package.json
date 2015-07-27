@@ -1,0 +1,24 @@
+{
+  "name": "node-api",
+  "version": "1.0.0",
+  "description": "A simple RESTful API",
+  "main": "server.js",
+  "dependencies": {
+    "express": 'latest',
+    "mongoose": 'latest',
+    "body-parser": 'latest'
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonlee503/Node-API-Test.git"
+  },
+  "author": "Brandon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandonlee503/Node-API-Test/issues"
+  },
+  "homepage": "https://github.com/brandonlee503/Node-API-Test#readme"
+}
