@@ -4,6 +4,10 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+// Connect to a local Mongo database
+mongoose.connect('mongodb://localhost/usersTest');
 
 // Configure app to use bodyParser() - allows us to get data from POST
 app.use(bodyParser.urlencoded({ extended: true }));
