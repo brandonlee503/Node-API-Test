@@ -6,12 +6,17 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+// Import models
+var user = require('.app/models/user');
+
 // Connect to a local Mongo database
 mongoose.connect('mongodb://localhost/usersTest');
+
 
 // Configure app to use bodyParser() - allows us to get data from POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 
 // Set our port
 var port = process.env.PORT || 8080;
@@ -19,9 +24,9 @@ var port = process.env.PORT || 8080;
 
 // Routes for API
 // ---------
-
 // Get instance of express router
 var router = express.Router();
+
 
 // Test
 router.get('/', function(req, res) {
@@ -33,6 +38,8 @@ router.get('/', function(req, res) {
 // Register routes - all routes will be prefixed with /api
 // --------
 app.use('/api', router);
+
+
 
 // Start server
 // --------
