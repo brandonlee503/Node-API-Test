@@ -30,7 +30,7 @@ var router = express.Router();
 
 
 // Middleware for all requests
-router.use(function(req, res, next) {
+router.use(function (req, res, next) {
     
     // Perform logging here
     console.log("Cool routing stuff is happening here");
@@ -42,7 +42,7 @@ router.use(function(req, res, next) {
 
 
 // Test
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     res.json({message: "Hello World"});
 });
 
