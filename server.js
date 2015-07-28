@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 // Import models
 var user = require('.app/models/user');
 
+
 // Connect to a local Mongo database
 mongoose.connect('mongodb://localhost/usersTest');
 
@@ -22,8 +23,8 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
 
 
-// Routes for API
-// ---------
+// ROUTES FOR API
+// -------------------------------------------------------------------
 // Get instance of express router
 var router = express.Router();
 
@@ -33,16 +34,18 @@ router.get('/', function(req, res) {
     res.json({message: "Hello World"});
 });
 
-// Add additional routes here
+// Additonal routes
 
-// Register routes - all routes will be prefixed with /api
-// --------
+// REGISTER ROUTES 
+// -------------------------------------------------------------------
+// All routes will be prefixed with /api
+
 app.use('/api', router);
 
 
 
-// Start server
-// --------
+// START SERVER
+// -------------------------------------------------------------------
 app.listen(port);
 console.log("Server has started on port " + port);
 
