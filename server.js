@@ -39,14 +39,23 @@ router.use(function (req, res, next) {
     next();
 });
 
-
-
 // Test
 router.get('/', function (req, res) {
     res.json({message: "Hello World"});
 });
 
-// Additonal routes
+// Routes that end with /user
+router.route('/user')
+    
+    // Create a user
+    .post(function (req, res) {
+        
+        // Create new instance of user model
+        var user = new User();
+    
+        // Set user's name (comes from the request)
+        user.name = req.body.name;
+    }
 
 // REGISTER ROUTES 
 // -------------------------------------------------------------------
@@ -60,4 +69,3 @@ app.use('/api', router);
 // -------------------------------------------------------------------
 app.listen(port);
 console.log("Server has started on port " + port);
-
