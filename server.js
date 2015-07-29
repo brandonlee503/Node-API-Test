@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // Import models
-var user = require('./app/models/user');
+var User = require('./app/models/user');
 
 
 // Connect to a local Mongo database
@@ -51,20 +51,20 @@ router.route('/user')
     .post(function (req, res) {
         
         // Create new instance of user model
-        var user = new User();
+        var newUser = new User();
     
         // Set user's name (comes from the request)
-        user.name = req.body.name;
+        newUser.name = req.body.name;
     
         // Save user instance into database with mongoose
-        user.save(function (err) {
+        newUser.save(function (err) {
             if (err) {
                 res.send(err);
             }
             
             res.json({ message: "User created!" });
-        }
-    }
+        });
+    });
 
 // REGISTER ROUTES 
 // -------------------------------------------------------------------
