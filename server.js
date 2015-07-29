@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // Import models
-var user = require('.app/models/user');
+var user = require('./app/models/user');
 
 
 // Connect to a local Mongo database
