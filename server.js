@@ -55,6 +55,15 @@ router.route('/user')
     
         // Set user's name (comes from the request)
         user.name = req.body.name;
+    
+        // Save user instance into database with mongoose
+        user.save(function (err) {
+            if (err) {
+                res.send(err);
+            }
+            
+            res.json({ message: "User created!" });
+        }
     }
 
 // REGISTER ROUTES 
