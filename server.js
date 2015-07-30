@@ -31,7 +31,7 @@ var router = express.Router();
 
 // Middleware for all requests
 router.use(function (req, res, next) {
-    
+
     // Perform logging here
     console.log("Cool routing stuff is happening here");
 
@@ -46,27 +46,38 @@ router.get('/', function (req, res) {
 
 // Routes that end with /user
 router.route('/user')
-    
+
     // Create a user
     .post(function (req, res) {
-        
+
         // Create new instance of user model
         var newUser = new User();
-    
+
         // Set user's name (comes from the request)
         newUser.name = req.body.name;
-    
+
         // Save user instance into database with mongoose
         newUser.save(function (err) {
             if (err) {
                 res.send(err);
             }
-            
+
             res.json({ message: "User created!" });
         });
+    })
+
+    // Get all users
+    .get(function (req, res){
+        User.find(function (err, users) {
+            if (err) {
+                res.send(err);
+            }
+
+            res.json(users);
+        })
     });
 
-// REGISTER ROUTES 
+// REGISTER ROUTES
 // -------------------------------------------------------------------
 // All routes will be prefixed with /api
 
