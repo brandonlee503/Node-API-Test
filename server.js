@@ -84,7 +84,7 @@ router.route('/user')
 
 // Routes that end with /user/:user_id
 // -----------------------------------------------------------------------------
-router.route('/user/user_id')
+router.route('/user/:user_id')
 
     // Get a user with a specific ID
     .get(function (req, res) {
