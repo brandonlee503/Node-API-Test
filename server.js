@@ -120,8 +120,19 @@ router.route('/user/:user_id')
                 res.json({ message: 'Put - User updated!' });
             });
         });
-    });
+    })
 
+    // Delete a user with a specific ID
+    .delete(function (req, res) {
+        
+        User.remove( { _id: req.params.user_id}, function (err, user) {
+            if (err) {
+                res.send(err);
+            }
+
+            res.json({ message: 'User has been deleted' });
+        });
+    });
 
 // REGISTER ROUTES - All routes will be prefixed with /api
 // -----------------------------------------------------------------------------
