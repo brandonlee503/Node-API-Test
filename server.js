@@ -1,5 +1,8 @@
 // server.js
 
+// MAIN SETUP
+// =============================================================================
+
 // Import packages
 var express = require('express');
 var app = express();
@@ -24,7 +27,8 @@ var port = process.env.PORT || 8080;
 
 
 // ROUTES FOR API
-// -------------------------------------------------------------------
+// =============================================================================
+
 // Get instance of express router
 var router = express.Router();
 
@@ -45,6 +49,7 @@ router.get('/', function (req, res) {
 });
 
 // Routes that end with /user
+// -----------------------------------------------------------------------------
 router.route('/user')
 
     // Create a user
@@ -77,15 +82,15 @@ router.route('/user')
         });
     });
 
-// REGISTER ROUTES
-// -------------------------------------------------------------------
-// All routes will be prefixed with /api
+// Routes that end with /user/:user_id
+// -----------------------------------------------------------------------------
 
+// REGISTER ROUTES - All routes will be prefixed with /api
+// -----------------------------------------------------------------------------
 app.use('/api', router);
 
 
-
 // START SERVER
-// -------------------------------------------------------------------
+// =============================================================================
 app.listen(port);
 console.log("Server has started on port " + port);
