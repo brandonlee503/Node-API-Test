@@ -74,7 +74,7 @@ router.route('/user')
             }
 
             res.json(users);
-        })
+        });
     });
 
 // REGISTER ROUTES
