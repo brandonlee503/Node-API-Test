@@ -97,7 +97,7 @@ router.route('/user/:user_id')
 
             res.json(user);
         });
-    });
+    })
 
     // Update a user with a specific ID
     .put(function (req, res) {
