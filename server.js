@@ -88,12 +88,37 @@ router.route('/user/:user_id')
 
     // Get a user with a specific ID
     .get(function (req, res) {
+
+        // Use model to find a specific user
         User.findById(req.params.user_id, function (err, user) {
             if (err) {
                 res.send(err);
             }
 
             res.json(user);
+        });
+    });
+
+    // Update a user with a specific ID
+    .put(function (req, res) {
+
+        // User model to find specific user
+        user.findById(req.params.user_id, function (err, user) {
+            if (err) {
+                res.send(err);
+            }
+
+            // Update the user's info
+            user.name = req.body.name;
+
+            // Save into database
+            bear.save(function (err) {
+                if (err) {
+                    res.send(err);
+                }
+
+                res.json({ message: 'Put - User updated!' });
+            });
         });
     });
 
