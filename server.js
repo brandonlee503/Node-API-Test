@@ -103,7 +103,7 @@ router.route('/user/:user_id')
     .put(function (req, res) {
 
         // User model to find specific user
-        user.findById(req.params.user_id, function (err, user) {
+        User.findById(req.params.user_id, function (err, user) {
             if (err) {
                 res.send(err);
             }
@@ -112,7 +112,7 @@ router.route('/user/:user_id')
             user.name = req.body.name;
 
             // Save into database
-            bear.save(function (err) {
+            user.save(function (err) {
                 if (err) {
                     res.send(err);
                 }
