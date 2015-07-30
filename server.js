@@ -72,7 +72,7 @@ router.route('/user')
     })
 
     // Get all users
-    .get(function (req, res){
+    .get(function (req, res) {
         User.find(function (err, users) {
             if (err) {
                 res.send(err);
